@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URJ · DISCOM Operations Intelligence Portal</title>
+<meta name="description" content="URJ — a single, live, multi-tenant Operations Intelligence Portal for electricity distribution utilities. 11 modules unifying network ops, revenue assurance, predictive analytics, field operations and governance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="mark">U</span>
+      <span>URJ<span class="sub">DISCOM OPS INTELLIGENCE</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#platform">Platform</a>
+      <a href="#value">Business value</a>
+      <a href="#modules">Modules</a>
+      <a href="#roi">ROI</a>
+      <a href="portal.html">Portal</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="portal.html">Enter the Portal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=70" alt="" onerror="this.style.display='none'">
+  </div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow a"></div>
+  <div class="hero-glow b"></div>
+
+  <div class="wrap">
+    <div class="hero-layout">
+      <div>
+        <span class="pill pill-live"><span class="dot"></span> LIVE &amp; OPERATIONAL — APDCL &amp; PVVNL TENANTS</span>
+        <h1>One platform for the <span class="accent">entire DISCOM</span> operation.</h1>
+        <p class="hero-sub">URJ replaces the patchwork of GIS tools, SCADA viewers, Excel billing registers and standalone ROI spreadsheets with a single, multi-tenant Operations Intelligence Portal — one login, one live data layer, eleven business-grade modules.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="portal.html">Explore the modules <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="#roi">See the ROI</a>
+        </div>
+        <div class="hero-badges">
+          <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 5 6v5c0 4.3 3 8.3 7 9.5 4-1.2 7-5.2 7-9.5V6l-7-3Z"/></svg> Real tenant isolation</span>
+          <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg> Live meter &amp; feeder telemetry</span>
+          <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 6 9 17l-5-5"/></svg> Deployed, not a mock-up</span>
+        </div>
+      </div>
+
+      <!-- product mockup -->
+      <div class="hero-visual">
+        <div class="mock">
+          <div class="mock-bar"><i></i><i></i><i></i><span>urj · executive command center</span></div>
+          <div class="mock-screen">
+            <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fe0c2" stop-opacity=".9"/><stop offset="1" stop-color="#7fe0c2" stop-opacity=".05"/></linearGradient>
+                <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#34c99b"/><stop offset="1" stop-color="#ffbf47"/></linearGradient>
+              </defs>
+              <!-- top KPI row -->
+              <g font-family="Space Grotesk, monospace">
+                <rect x="16" y="16" width="150" height="66" rx="10" fill="#ffffff" opacity=".08"/>
+                <text x="30" y="42" fill="#7fe0c2" font-size="11">AT&amp;C LOSS</text>
+                <text x="30" y="68" fill="#fff" font-size="24" font-weight="700">12.4%</text>
+                <rect x="182" y="16" width="150" height="66" rx="10" fill="#ffffff" opacity=".08"/>
+                <text x="196" y="42" fill="#ffbf47" font-size="11">COLLECTION EFF.</text>
+                <text x="196" y="68" fill="#fff" font-size="24" font-weight="700">98.1%</text>
+                <rect x="348" y="16" width="156" height="66" rx="10" fill="#ffffff" opacity=".08"/>
+                <text x="362" y="42" fill="#7fe0c2" font-size="11">FEEDERS LIVE</text>
+                <text x="362" y="68" fill="#fff" font-size="24" font-weight="700">1,284</text>
+              </g>
+              <!-- chart -->
+              <rect x="16" y="98" width="316" height="164" rx="12" fill="#ffffff" opacity=".07"/>
+              <text x="32" y="122" fill="#cdeee2" font-size="11" font-family="Space Grotesk, monospace">FEEDER LOAD · LIVE FORECAST (MW)</text>
+              <polyline points="32,232 80,214 128,224 176,190 224,200 272,164 320,150" fill="none" stroke="url(#g2)" stroke-width="3" stroke-linecap="round"/>
+              <polygon points="32,232 80,214 128,224 176,190 224,200 272,164 320,150 320,246 32,246" fill="url(#g1)" opacity=".4"/>
+              <circle cx="320" cy="150" r="4.5" fill="#ffbf47"/>
+              <!-- single line diagram mini -->
+              <rect x="348" y="98" width="156" height="164" rx="12" fill="#ffffff" opacity=".07"/>
+              <text x="362" y="122" fill="#cdeee2" font-size="11" font-family="Space Grotesk, monospace">SLD · LIVE</text>
+              <line x1="426" y1="140" x2="426" y2="170" stroke="#7fe0c2" stroke-width="2"/>
+              <circle cx="426" cy="140" r="6" fill="none" stroke="#34c99b" stroke-width="2"/>
+              <line x1="390" y1="170" x2="462" y2="170" stroke="#7fe0c2" stroke-width="2"/>
+              <line x1="390" y1="170" x2="390" y2="200" stroke="#34c99b" stroke-width="2"/>
+              <line x1="426" y1="170" x2="426" y2="200" stroke="#ffbf47" stroke-width="2"/>
+              <line x1="462" y1="170" x2="462" y2="200" stroke="#34c99b" stroke-width="2"/>
+              <circle cx="390" cy="206" r="5" fill="#34c99b"/><circle cx="426" cy="206" r="5" fill="#ffbf47"/><circle cx="462" cy="206" r="5" fill="#34c99b"/>
+              <text x="362" y="250" fill="#7fe0c2" font-size="9" font-family="Space Grotesk, monospace">69 substations · 2 circles</text>
+              <!-- alert feed -->
+              <rect x="16" y="278" width="488" height="66" rx="12" fill="#ffffff" opacity=".07"/>
+              <circle cx="34" cy="300" r="4" fill="#ffbf47"/><text x="48" y="304" fill="#fff" font-size="11" font-family="Inter">Tamper flag · DT-4471 · Guwahati-I</text>
+              <circle cx="34" cy="324" r="4" fill="#34c99b"/><text x="48" y="328" fill="#cdeee2" font-size="11" font-family="Inter">Load threshold cleared · Feeder BRP-12</text>
+            </svg>
+          </div>
+        </div>
+        <div class="float-card float-a"><div class="fi" style="background:var(--emerald-50);color:var(--emerald-600)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10m5 10V4m5 16v-6m5 6V8"/></svg></div><div><b>−2.4pp</b><span>AT&amp;C loss, target</span></div></div>
+        <div class="float-card float-b"><div class="fi" style="background:var(--volt-100);color:var(--volt-600)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div><b>Real-time</b><span>vs days of reports</span></div></div>
+      </div>
+    </div>
+
+    <!-- hero stats -->
+    <div class="hero-stats">
+      <div class="stat"><div class="num">11</div><div class="lbl">business-grade modules on one platform</div></div>
+      <div class="stat"><div class="num">2<span class="u">+</span></div><div class="lbl">live DISCOM tenants, one shared backend</div></div>
+      <div class="stat"><div class="num">70<span class="u">+</span></div><div class="lbl">API route modules across every domain</div></div>
+      <div class="stat"><div class="num">69</div><div class="lbl">substations auto-parsed, zero redrawing</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ TRUST BAR ═══════════ -->
+<section class="trust">
+  <div class="wrap trust-inner">
+    <span>Unifying what DISCOMs run today &nbsp;—</span>
+    <b>GIS</b><b>SCADA</b><b>Billing (IntelliSmart Pkg-7)</b><b>AMISP / HES</b><b>ROI spreadsheets</b><b>Field dispatch</b>
+    <span>— into one live data layer</span>
+  </div>
+</section>
+
+<!-- ═══════════ PROBLEM → SOLUTION ═══════════ -->
+<section class="section" id="platform">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center">The shift</span>
+      <h2>From a disconnected tool estate to one intelligence layer</h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">Most DISCOMs run a patchwork of point tools that don't share data. URJ is one backend, one login and one real data layer per tenant — deployed and operational today, not a concept.</p>
+    </div>
+    <div class="split">
+      <div class="panel before reveal">
+        <span class="tag">Today · the patchwork</span>
+        <h3 style="margin-top:14px">Separate systems, manual glue</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>GIS, SCADA viewers and Excel registers that don't talk to each other</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Weekly numbers collated by hand from separate systems before every review</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>AT&amp;C loss found at the next physical audit, not in near real time</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Weeks of manual AutoCAD/Visio drafting for every single-line diagram</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Paper registers and phone-call dispatch for the field force</span></li>
+        </ul>
+      </div>
+      <div class="panel after reveal d1">
+        <div class="hero-grid"></div>
+        <span class="tag">With URJ · one platform</span>
+        <h3 style="margin-top:14px">One backend, one live truth</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Topology, live telemetry and outage handling in one system, per tenant</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>A live executive scorecard — management reporting drops from days to real time</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Always-on loss &amp; anomaly detection across the live smart-meter feed</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Single-line diagrams auto-generated from the Excel register — no CAD</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Native Android field app with real-time work-order sync and push</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BUSINESS VALUE / KPI ═══════════ -->
+<section class="section" id="value" style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Business value</span>
+      <h2>Built around the four numbers a DISCOM is judged on</h2>
+      <p class="lead">Every module maps to a board-level outcome — loss reduction, reliability, capex efficiency and field productivity. These are the levers regulators and leadership actually track.</p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20V10m5 10V4m5 16v-6m5 6V8"/></svg></div>
+        <div class="big">2–4<span class="u">pp</span></div>
+        <h4>AT&amp;C loss reduction</h4>
+        <p>Targeted, always-on detection of theft, bypass and billing error against the live meter feed. Modelled reduction on the headline national metric.</p>
+        <div class="bar"></div>
+      </div>
+      <div class="kpi reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 5 6v5c0 4.3 3 8.3 7 9.5 4-1.2 7-5.2 7-9.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div class="big">↓ MTTR</div>
+        <h4>Reliability · SAIDI / SAIFI</h4>
+        <p>Live network status on the single-line diagram plus real-time field dispatch shorten fault localisation and the fault-to-repair cycle.</p>
+        <div class="bar"></div>
+      </div>
+      <div class="kpi reveal d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17 9 11l4 4 8-8m0 0h-5m5 0v5"/></svg></div>
+        <div class="big">15</div>
+        <h4>Live ROI calculators</h4>
+        <p>Capex committees run DT augmentation, feeder bifurcation and smart-meter scenarios live — backed by real operational data, not a static spreadsheet.</p>
+        <div class="bar"></div>
+      </div>
+      <div class="kpi reveal d3">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 5.5a3.2 3.2 0 0 1 0 6M20.5 20a5.5 5.5 0 0 0-4-5.3"/></svg></div>
+        <div class="big">20–30<span class="u">%</span></div>
+        <h4>Field-force productivity</h4>
+        <p>Native Android app replaces paper registers and phone dispatch with real-time work-order assignment, digital attendance and photo evidence.</p>
+        <div class="bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ARCHITECTURE ═══════════ -->
+<section class="section">
+  <div class="wrap">
+    <div class="arch reveal">
+      <div class="hero-grid"></div>
+      <div class="arch-inner">
+        <div>
+          <span class="eyebrow" style="color:var(--emerald-300)"><span style="background:var(--emerald-300)"></span>Platform architecture</span>
+          <h2 style="margin-top:18px">One backend. Genuine multi-tenancy. Enforced at the API.</h2>
+          <p class="lead" style="margin-top:20px">URJ runs as a single service that serves both the REST API and the web frontend — deliberately simple to deploy and reason about, versus a sprawling microservice estate. Each DISCOM gets its own isolated database; access is enforced at the API layer, not just the UI.</p>
+          <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+            <span class="pill" style="background:rgba(255,255,255,.08);color:var(--emerald-300);border:1px solid rgba(255,255,255,.15)">Cross-tenant access → HTTP 403</span>
+            <span class="pill" style="background:rgba(255,255,255,.08);color:var(--volt-400);border:1px solid rgba(255,255,255,.15)">Per-tenant data isolation</span>
+          </div>
+        </div>
+        <div class="arch-layers">
+          <div class="layer"><span class="lnum">01</span><div class="ltxt"><b>Frontend</b><span>React + TypeScript + Vite · live updates via Server-Sent Events / WebSocket push</span></div></div>
+          <div class="layer"><span class="lnum">02</span><div class="ltxt"><b>Backend API</b><span>FastAPI (Python) · one service · 70+ route modules across every business domain</span></div></div>
+          <div class="layer"><span class="lnum">03</span><div class="ltxt"><b>Data store</b><span>MongoDB · per-tenant database isolation, shared platform/config database</span></div></div>
+          <div class="layer"><span class="lnum">04</span><div class="ltxt"><b>Edge / security</b><span>nginx reverse proxy + URJ Shield bot-defense · RBAC, MFA, WebAuthn/passkey, audit logging</span></div></div>
+          <div class="layer"><span class="lnum">05</span><div class="ltxt"><b>Mobile</b><span>Native Android apps (Kotlin/Compose) for field crews, per-DISCOM builds</span></div></div>
+          <div class="layer"><span class="lnum">06</span><div class="ltxt"><b>Licensing</b><span>Independent License Management Service · offline-verifiable, fail-open by design</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MODULES PREVIEW ═══════════ -->
+<section class="section" id="modules" style="background:var(--white);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="mod-toolbar">
+      <div class="sec-head reveal" style="margin-bottom:0">
+        <span class="eyebrow">Eleven modules</span>
+        <h2>Every capability, mapped to a business driver</h2>
+      </div>
+      <a class="btn btn-line reveal d1" href="portal.html">Open the full portal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+    </div>
+    <div class="mod-grid" id="modGrid"><!-- injected --></div>
+  </div>
+</section>
+
+<!-- ═══════════ ROI DASHBOARD ═══════════ -->
+<section class="section roi-hero" id="roi">
+  <div class="hero-grid"></div>
+  <div class="hero-glow a"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="sec-head reveal" style="max-width:760px">
+      <span class="eyebrow" style="color:var(--emerald-300)"><span style="background:var(--emerald-300)"></span>The business case</span>
+      <h2 style="color:#fff">ROI, quantified across the whole operation</h2>
+      <p class="lead" style="color:rgba(255,255,255,.8)">URJ replaces licence, integration and manual-effort costs across a dozen point tools with one platform — and drives revenue via the levers a DISCOM already reports on. Figures below are indicative targets, modelled on the operational benefits each module delivers.</p>
+    </div>
+
+    <div class="roidash">
+      <div class="roidash-card reveal" data-tracks>
+        <h3>Value levers</h3>
+        <div class="sub">Modelled impact on the metrics leadership tracks</div>
+        <div class="gauge-row">
+          <div class="gauge">
+            <div class="gv">−2.4<span class="u">pp</span></div>
+            <div class="gl">AT&amp;C loss reduction target</div>
+            <div class="track"><i data-w="72%"></i></div>
+          </div>
+          <div class="gauge">
+            <div class="gv">98<span class="u">%</span></div>
+            <div class="gl">Collection efficiency ceiling</div>
+            <div class="track"><i data-w="94%"></i></div>
+          </div>
+          <div class="gauge">
+            <div class="gv">−90<span class="u">%</span></div>
+            <div class="gl">Reporting turnaround time</div>
+            <div class="track"><i data-w="90%"></i></div>
+          </div>
+          <div class="gauge">
+            <div class="gv">+25<span class="u">%</span></div>
+            <div class="gl">Field crew productivity</div>
+            <div class="track"><i data-w="80%"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="roidash-card reveal d1">
+        <h3>Where the money moves</h3>
+        <div class="sub">Cost taken out · revenue protected</div>
+        <div class="roi-lines">
+          <div class="roi-line"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></div><div class="rt"><b>Revenue leakage recovered</b><span>Theft, meter bypass &amp; billing error, near real-time</span></div><div class="rval">↑</div></div>
+          <div class="roi-line"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg></div><div class="rt"><b>Point-tool licences consolidated</b><span>GIS, SCADA viewer, OMS, ROI tools → one platform</span></div><div class="rval">↓</div></div>
+          <div class="roi-line"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div class="rt"><b>Manual effort eliminated</b><span>CAD drafting, report collation, paper dispatch</span></div><div class="rval">↓</div></div>
+          <div class="roi-line"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="2.5"/><circle cx="12" cy="4" r="1.6"/><circle cx="4" cy="8" r="1.6"/><circle cx="20" cy="8" r="1.6"/></svg></div><div class="rt"><b>Per-DISCOM deployment cost</b><span>Shared multi-tenant backend vs separate installs</span></div><div class="rval">↓</div></div>
+          <div class="roi-line"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17 9 11l4 4 8-8m0 0h-5m5 0v5"/></svg></div><div class="rt"><b>Better power-purchase planning</b><span>Load forecasting cuts under-drawal penalties</span></div><div class="rval">↑</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMPARISON ═══════════ -->
+<section class="section" style="background:var(--white)">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center">Why one platform</span>
+      <h2>URJ vs the disconnected tool estate</h2>
+    </div>
+    <div class="reveal d1" style="overflow-x:auto">
+      <table class="cmp">
+        <thead><tr><th>Capability</th><th>Legacy point tools</th><th>URJ Portal</th></tr></thead>
+        <tbody>
+          <tr><td>Single live data layer per tenant</td><td class="no">Siloed exports</td><td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Unified &amp; live</td></tr>
+          <tr><td>AT&amp;C loss detection</td><td class="no">Periodic physical audit</td><td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Always-on, ranked worklist</td></tr>
+          <tr><td>Single-line diagrams</td><td class="no">Weeks of manual CAD</td><td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Auto-generated + live telemetry</td></tr>
+          <tr><td>Executive reporting</td><td class="no">Days of spreadsheet collation</td><td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Real-time, one pane of glass</td></tr>
+          <tr><td>ROI / capex analysis</td><td class="no">Static spreadsheet</td><td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> 15 live what-if calculators</td></tr>
+          <tr><td>Multi-DISCOM tenancy</td><td class="no">Separate installs</td><td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Shared backend, 403-isolated</td></tr>
+          <tr><td>Field operations</td><td class="no">Paper + phone dispatch</td><td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Native app, real-time sync</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="hero-grid"></div>
+      <div class="hero-glow a"></div>
+      <div class="cta-in">
+        <span class="pill pill-live" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:var(--emerald-300)"><span class="dot"></span> Rollout = tenant onboarding, not from-scratch build</span>
+        <h2 style="margin-top:22px">Every capability here is live today.</h2>
+        <p>Onboarding a new DISCOM is a data-connection and configuration exercise on top of shared, already-proven infrastructure. Step inside the portal to see each module and its business return in detail.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="portal.html">Enter the Portal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="#modules">Browse modules</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="index.html"><span class="mark">U</span><span>URJ<span class="sub">DISCOM OPS INTELLIGENCE</span></span></a>
+        <p class="foot-desc">A single, multi-tenant Operations Intelligence Portal purpose-built for electricity distribution utilities — unifying network operations, revenue assurance, predictive analytics, field operations and governance.</p>
+      </div>
+      <div class="foot-col"><h5>Platform</h5><a href="#platform">Architecture</a><a href="#value">Business value</a><a href="#roi">ROI engine</a><a href="portal.html">Enter portal</a></div>
+      <div class="foot-col"><h5>Modules</h5><a href="portal.html">Command Center</a><a href="portal.html">Revenue Assurance</a><a href="portal.html">Predictive Analytics</a><a href="portal.html">Field Force</a></div>
+      <div class="foot-col"><h5>Governance</h5><a href="portal.html">Multi-tenancy</a><a href="portal.html">Security</a><a href="portal.html">Licensing</a><a href="portal.html">Audit &amp; compliance</a></div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 URJ · DISCOM Operations Intelligence Portal · Confidential — for business scoping &amp; stakeholder review.</span>
+      <span class="pill pill-live"><span class="dot"></span> Live &amp; operational — APDCL &amp; PVVNL</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

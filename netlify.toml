@@ -1,0 +1,13 @@
+# Netlify build config for the URJ frontend.
+# In Netlify: New site → import this repo. Set the build env var
+# VITE_API_BASE to your Render backend URL (e.g. https://urj-backend.onrender.com).
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = "dist"
+
+# SPA fallback so client-side routes resolve to index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

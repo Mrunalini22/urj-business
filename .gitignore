@@ -1,0 +1,22 @@
+# Python
+backend/.venv/
+backend/venv/
+__pycache__/
+*.pyc
+backend/.env
+*.db
+*.sqlite3
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# source documents (not part of the app)
+*.pdf

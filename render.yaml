@@ -1,0 +1,31 @@
+# Render Blueprint — deploys the URJ FastAPI backend on the free tier.
+# In the Render dashboard: New + → Blueprint → connect this repo.
+# The backend auto-seeds its content on first startup (SQLite by default).
+#
+# Optional: to use a persistent Postgres instead of ephemeral SQLite,
+# uncomment the `databases` block and the DATABASE_URL fromDatabase env var.
+services:
+  - type: web
+    name: urj-backend
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: DATABASE_URL
+        value: sqlite:///./urj_portal.db
+      # Allow the deployed frontend to call the API. Set to your frontend URL
+      # (e.g. https://urj-portal.vercel.app) once known, or "*" for a quick demo.
+      - key: CORS_ORIGINS
+        value: "*"
+      # - key: DATABASE_URL
+      #   fromDatabase:
+      #     name: urj-db
+      #     property: connectionString
+
+# databases:
+#   - name: urj-db
+#     plan: free
