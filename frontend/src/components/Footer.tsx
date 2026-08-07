@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LogoMark } from "./Logo";
+import { BrandLogo } from "./Logo";
 
 export function Footer() {
   return (
@@ -8,8 +8,7 @@ export function Footer() {
         <div className="foot-top">
           <div>
             <Link className="brand" to="/">
-              <span className="mark logo-mark"><LogoMark size={30} /></span>
-              <span>URJ<span className="sub">DISCOM OPS INTELLIGENCE</span></span>
+              <BrandLogo height={44} />
             </Link>
             <p className="foot-desc" style={{ marginTop: 18 }}>
               A single, multi-tenant Operations Intelligence Portal purpose-built for electricity

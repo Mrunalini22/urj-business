@@ -145,6 +145,11 @@ ul{margin:0;padding:0;list-style:none}
   box-shadow:var(--shadow-sm);transition:.35s;
 }
 .brand .sub{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.14em;opacity:.7;display:block;margin-top:1px}
+.brand-chip{display:inline-flex;align-items:center;background:#fbfdfc;border-radius:12px;padding:5px 11px;
+  box-shadow:0 10px 24px -10px rgba(4,42,32,.55),inset 0 0 0 1px rgba(255,255,255,.6);transition:.3s}
+.brand:hover .brand-chip,.sb-brand:hover .brand-chip{box-shadow:0 12px 28px -8px rgba(4,42,32,.6),inset 0 0 0 1px var(--emerald-300)}
+.brand-chip img{width:auto;display:block}
+.sb-mobilebar .brand-chip{padding:4px 9px}
 .mark.logo-mark{background:#fff;padding:4px}
 .nav:not(.scrolled) .mark.logo-mark{background:rgba(255,255,255,.92)}
 .foot .mark.logo-mark{background:#fff}

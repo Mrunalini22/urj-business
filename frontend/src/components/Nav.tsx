@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Icon } from "./Icon";
-import { LogoMark } from "./Logo";
+import { BrandLogo } from "./Logo";
 
 type NavLink = { href: string; label: string; icon: string; id?: string };
 
@@ -55,8 +55,7 @@ export function Nav() {
           <span /><span /><span />
         </button>
         <Link className="brand" to="/" onClick={close}>
-          <span className="mark logo-mark"><LogoMark size={26} /></span>
-          <span>URJ</span>
+          <BrandLogo height={30} />
         </Link>
       </div>
 
@@ -64,8 +63,7 @@ export function Nav() {
 
       <aside className={`sidebar ${open ? "open" : ""}`}>
         <Link className="sb-brand" to="/" onClick={close}>
-          <span className="mark logo-mark"><LogoMark size={30} /></span>
-          <span>URJ<span className="sub">DISCOM OPS INTELLIGENCE</span></span>
+          <BrandLogo height={46} />
         </Link>
 
         <nav className="sb-links">
