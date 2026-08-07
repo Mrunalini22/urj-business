@@ -20,22 +20,28 @@ const SLIDES: Slide[] = [
     desc: "Net-metering and distributed solar tracked alongside the rest of the network on one shared platform.", stat: "Solar / DER aware" },
 ];
 
-const INTERVAL = 5500;
+const INTERVAL = 6000;
 
 export function Slider() {
   const [i, setI] = useState(0);
+  const [prev, setPrev] = useState(0);
   const [paused, setPaused] = useState(false);
   const n = SLIDES.length;
-  const go = useCallback((d: number) => setI((c) => (c + d + n) % n), [n]);
   const timer = useRef<number>(0);
+
+  const goTo = useCallback((next: number) => {
+    setI((cur) => { setPrev(cur); return (next + n) % n; });
+  }, [n]);
+  const step = useCallback((d: number) => goTo(i + d), [goTo, i]);
 
   useEffect(() => {
     if (paused) return;
-    timer.current = window.setInterval(() => setI((c) => (c + 1) % n), INTERVAL);
+    timer.current = window.setInterval(() => setI((cur) => { setPrev(cur); return (cur + 1) % n; }), INTERVAL);
     return () => window.clearInterval(timer.current);
   }, [paused, n]);
 
   const s = SLIDES[i];
+  const dir = (i - prev + n) % n === n - 1 ? -1 : 1; // reveal direction
 
   return (
     <section className="section slider-sec" id="showcase">
@@ -51,19 +57,23 @@ export function Slider() {
         <div className="slider reveal d1" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
           <div className="slide-track">
             {SLIDES.map((sl, idx) => (
-              <div className={`slide ${idx === i ? "active" : ""}`} key={idx} aria-hidden={idx !== i}>
+              <div className={`slide ${idx === i ? "active" : idx === prev ? "prev" : ""}`}
+                   key={idx} style={{ ["--dir" as string]: dir }} aria-hidden={idx !== i}>
                 <img src={sl.img} alt={sl.title} onError={(e) => (e.currentTarget.style.display = "none")} />
                 <span className="slide-overlay" />
               </div>
             ))}
 
-            {/* progress bar (restarts each slide) */}
+            {/* animated giant index */}
+            <span className="slide-index" key={`idx${i}`}>{String(i + 1).padStart(2, "0")}</span>
+
+            {/* progress */}
             <div className="slider-progress"><i key={i} style={{ animationDuration: `${INTERVAL}ms`, animationPlayState: paused ? "paused" : "running" }} /></div>
 
             {/* counter */}
             <div className="slider-counter"><b>{String(i + 1).padStart(2, "0")}</b><span>/ {String(n).padStart(2, "0")}</span></div>
 
-            {/* animated caption */}
+            {/* kinetic caption */}
             <div className="slide-content" key={`c${i}`}>
               <span className="slide-eyebrow">{s.eyebrow}</span>
               <h3 className="slide-title">{s.title}</h3>
@@ -72,14 +82,21 @@ export function Slider() {
             </div>
 
             {/* arrows */}
-            <button className="slider-arrow prev" onClick={() => go(-1)} aria-label="Previous"><Icon name="arrow" width={20} /></button>
-            <button className="slider-arrow next" onClick={() => go(1)} aria-label="Next"><Icon name="arrow" width={20} /></button>
+            <button className="slider-arrow prev" onClick={() => step(-1)} aria-label="Previous"><Icon name="arrow" width={20} /></button>
+            <button className="slider-arrow next" onClick={() => step(1)} aria-label="Next"><Icon name="arrow" width={20} /></button>
+
+            {/* segment dots */}
+            <div className="slider-dots">
+              {SLIDES.map((_, idx) => (
+                <button key={idx} className={`sdot ${idx === i ? "on" : ""}`} onClick={() => goTo(idx)} aria-label={`Slide ${idx + 1}`} />
+              ))}
+            </div>
           </div>
 
           {/* thumbnail strip */}
           <div className="slider-thumbs">
             {SLIDES.map((sl, idx) => (
-              <button className={`thumb ${idx === i ? "active" : ""}`} key={idx} onClick={() => setI(idx)} aria-label={sl.title}>
+              <button className={`thumb ${idx === i ? "active" : ""}`} key={idx} onClick={() => goTo(idx)} aria-label={sl.title}>
                 <img src={sl.img} alt="" onError={(e) => (e.currentTarget.style.display = "none")} />
                 <span className="thumb-label">{sl.eyebrow}</span>
               </button>
