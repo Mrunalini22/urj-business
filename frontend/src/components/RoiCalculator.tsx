@@ -4,18 +4,23 @@ import type { RoiConfig, RoiInputs, RoiResult, RoiFlow } from "../types";
 import { useCountUp } from "../hooks";
 import { Icon } from "./Icon";
 
-const inr = (v: number, dec = 0) =>
-  v.toLocaleString("en-IN", { minimumFractionDigits: dec, maximumFractionDigits: dec });
-const cr = (v: number) => `₹${inr(v, v < 100 ? 1 : 0)} Cr`;
+// US number grouping + USD money (values are in $ millions)
+const grp = (v: number, dec = 0) =>
+  v.toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+const money = (v: number) =>
+  v >= 1000 ? `$${grp(v / 1000, 2)}B` : `$${grp(v, v < 100 ? 1 : 0)}M`;
+const moneyShort = (v: number) =>
+  v >= 1000 ? `$${grp(v / 1000, 1)}B` : `$${grp(v, 0)}M`;
 
 const SEG = { loss: "var(--emerald-500)", collection: "var(--volt-500)", om: "var(--sky)" } as Record<string, string>;
 
-function Stat({ label, value, suffix, sub, dec = 0 }: { label: string; value: number; suffix?: string; sub: string; dec?: number }) {
+function Stat({ label, value, suffix, sub, dec = 0, isMoney = false }:
+  { label: string; value: number; suffix?: string; sub: string; dec?: number; isMoney?: boolean }) {
   const v = useCountUp(value, 600);
   return (
     <div className="roi-stat">
       <div className="roi-stat-label">{label}</div>
-      <div className="roi-stat-val">{suffix === "₹" ? `₹${inr(v, dec)}` : inr(v, dec)}{suffix && suffix !== "₹" && <span className="u">{suffix}</span>}</div>
+      <div className="roi-stat-val">{isMoney ? money(v) : grp(v, dec)}{suffix && <span className="u">{suffix}</span>}</div>
       <div className="roi-stat-sub">{sub}</div>
     </div>
   );
@@ -35,7 +40,7 @@ function FiveYearChart({ r }: { r: RoiResult }) {
         return (
           <g key={t.year}>
             <rect x={x} y={H - 20 - h} width={w} height={h} rx={5} fill="url(#roibar)" />
-            <text x={x + w / 2} y={H - 20 - h - 6} textAnchor="middle" fontSize="11" fontFamily="Space Grotesk, monospace" fill="var(--emerald-700)" fontWeight="600">{inr(t.cumulative)}</text>
+            <text x={x + w / 2} y={H - 20 - h - 6} textAnchor="middle" fontSize="10.5" fontFamily="Space Grotesk, monospace" fill="var(--emerald-700)" fontWeight="600">{moneyShort(t.cumulative)}</text>
             <text x={x + w / 2} y={H - 6} textAnchor="middle" fontSize="10.5" fontFamily="Space Grotesk, monospace" fill="var(--ink-400)">Y{t.year}</text>
           </g>
         );
@@ -97,7 +102,8 @@ export function RoiCalculator({ flows }: { flows: RoiFlow[] }) {
           <h3>Your operating assumptions</h3>
           {cfg.fields.map((f) => {
             const val = inputs[f.key];
-            const disp = f.fmt === "comma" ? inr(val) : val % 1 ? val.toFixed(1) : String(val);
+            const dec = f.step < 0.01 ? 3 : f.step < 0.1 ? 2 : f.step < 1 ? 1 : 0;
+            const disp = f.fmt === "comma" ? grp(val) : grp(val, dec);
             return (
               <div className="roi-field" key={f.key}>
                 <div className="roi-field-top">
@@ -114,31 +120,31 @@ export function RoiCalculator({ flows }: { flows: RoiFlow[] }) {
         {/* RESULTS */}
         <div className="roi-results">
           <div className="roi-stat-row">
-            <Stat label="Net annual benefit" value={res.net_annual_cr} suffix="₹" sub="after platform cost" dec={0} />
-            <Stat label="Return multiple" value={res.benefit_multiple} suffix="×" sub={`${inr(res.roi_pct)}% ROI`} dec={1} />
+            <Stat label="Net annual benefit" value={res.net_annual_cr} isMoney sub="after platform cost" />
+            <Stat label="Return multiple" value={res.benefit_multiple} suffix="×" sub={`${grp(res.roi_pct)}% ROI`} dec={1} />
             <Stat label="Payback" value={res.payback_months} suffix="mo" sub="to recover platform cost" dec={1} />
           </div>
 
           {/* waterfall */}
           <div className="roi-flow-strip">
-            <div className="rfs-node"><span>Gross opportunity</span><b>{cr(res.gross_opportunity_cr)}</b></div>
-            <div className="rfs-op">× {inr(res.attribution_pct)}%<Icon name="arrow" /></div>
-            <div className="rfs-node"><span>Credited to URJ</span><b>{cr(res.attributable_benefit_cr)}</b></div>
+            <div className="rfs-node"><span>Gross opportunity</span><b>{money(res.gross_opportunity_cr)}</b></div>
+            <div className="rfs-op">× {grp(res.attribution_pct)}%<Icon name="arrow" /></div>
+            <div className="rfs-node"><span>Credited to URJ</span><b>{money(res.attributable_benefit_cr)}</b></div>
             <div className="rfs-op">− cost<Icon name="arrow" /></div>
-            <div className="rfs-node net"><span>Net annual</span><b>{cr(res.net_annual_cr)}</b></div>
+            <div className="rfs-node net"><span>Net annual</span><b>{money(res.net_annual_cr)}</b></div>
           </div>
 
           {/* breakdown bar */}
           <div className="roi-panel">
-            <div className="roi-panel-head"><span>Gross annual opportunity · {cr(res.gross_opportunity_cr)}</span></div>
+            <div className="roi-panel-head"><span>Gross annual opportunity · {money(res.gross_opportunity_cr)}</span></div>
             <div className="roi-bar">
               {res.breakdown.map((b) => (
-                <div key={b.key} className="roi-seg" style={{ flexGrow: Math.max(b.value, 0.01), background: SEG[b.key] }} title={`${b.label}: ${cr(b.value)}`} />
+                <div key={b.key} className="roi-seg" style={{ flexGrow: Math.max(b.value, 0.01), background: SEG[b.key] }} title={`${b.label}: ${money(b.value)}`} />
               ))}
             </div>
             <div className="roi-legend">
               {res.breakdown.map((b) => (
-                <div key={b.key} className="roi-leg"><span className="dot" style={{ background: SEG[b.key] }} /> {b.label} <b>{cr(b.value)}</b></div>
+                <div key={b.key} className="roi-leg"><span className="dot" style={{ background: SEG[b.key] }} /> {b.label} <b>{money(b.value)}</b></div>
               ))}
             </div>
           </div>
@@ -147,7 +153,7 @@ export function RoiCalculator({ flows }: { flows: RoiFlow[] }) {
           <div className="roi-panel">
             <div className="roi-panel-head">
               <span>Cumulative net benefit · 5-year</span>
-              <span className="roi-panel-hi">{cr(res.five_year_net_cr)}</span>
+              <span className="roi-panel-hi">{money(res.five_year_net_cr)}</span>
             </div>
             <FiveYearChart r={res} />
           </div>

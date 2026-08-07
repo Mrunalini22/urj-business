@@ -17,9 +17,13 @@ services:
         value: "3.11.9"
       - key: DATABASE_URL
         value: sqlite:///./urj_portal.db
-      # Allow the deployed frontend to call the API. Set to your frontend URL
-      # (e.g. https://urj-portal.vercel.app) once known, or "*" for a quick demo.
+      # Production security: lock the API to your real frontend origin.
+      # Set this to https://urj-ai.com (and https://www.urj-ai.com) after DNS is live.
       - key: CORS_ORIGINS
+        value: "https://urj-ai.com,https://www.urj-ai.com"
+      # Host headers the API accepts. Use your API host + the Render host.
+      # e.g. "api.urj-ai.com,urj-ai-backend.onrender.com"  (or "*" while testing)
+      - key: ALLOWED_HOSTS
         value: "*"
       # - key: DATABASE_URL
       #   fromDatabase:

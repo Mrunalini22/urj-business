@@ -12,7 +12,7 @@ import { Icon } from "../components/Icon";
 import { Loader } from "../components/Loader";
 import { LiveOps } from "../components/LiveOps";
 import { VizShowcase } from "../components/Viz";
-import { Gallery } from "../components/Gallery";
+import { Slider } from "../components/Slider";
 import { HowItWorks, Bespoke, Roadmap, Faq } from "../components/Detail";
 
 const PROBLEMS = [
@@ -48,8 +48,6 @@ export function Landing() {
     (data?.media ?? []).forEach((m) => (map[m.key] = m));
     return map;
   }, [data]);
-  const gallery = (data?.media ?? []).filter((m) => m.kind === "image" && m.key.startsWith("gallery"));
-
   if (err) return <Loader error={err} />;
   if (!data) return <Loader />;
 
@@ -157,8 +155,8 @@ export function Landing() {
         </div>
       </section>
 
-      {/* REALISTIC IMAGERY GALLERY */}
-      <Gallery images={gallery} />
+      {/* IMAGE SLIDER — realistic imagery showcase */}
+      <Slider />
 
       {/* ARCHITECTURE */}
       <section className="section">

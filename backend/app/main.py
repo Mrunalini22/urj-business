@@ -1,7 +1,8 @@
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from .config import settings
 from .database import Base, engine
@@ -29,6 +30,26 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title=settings.app_name, version="1.0.0", lifespan=lifespan)
 
+
+# ── security response headers (defence-in-depth; HSTS matters over HTTPS) ──
+@app.middleware("http")
+async def security_headers(request: Request, call_next):
+    resp = await call_next(request)
+    if settings.security_headers:
+        resp.headers["X-Content-Type-Options"] = "nosniff"
+        resp.headers["X-Frame-Options"] = "DENY"
+        resp.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        resp.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
+        resp.headers["Strict-Transport-Security"] = "max-age=63072000; includeSubDomains; preload"
+        resp.headers["Cross-Origin-Opener-Policy"] = "same-origin"
+    return resp
+
+
+# ── restrict which Host headers are accepted (blocks host-header attacks) ──
+_hosts = settings.allowed_hosts_list or ["*"]
+app.add_middleware(TrustedHostMiddleware, allowed_hosts=_hosts)
+
+# ── CORS: only the configured frontend origin(s) may call the API ──
 _origins = settings.cors_list
 _allow_credentials = True
 if "*" in _origins:
@@ -38,8 +59,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=_origins,
     allow_credentials=_allow_credentials,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 app.include_router(content.router)

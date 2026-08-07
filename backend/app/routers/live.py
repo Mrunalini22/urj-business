@@ -32,7 +32,7 @@ ALERT_POOL = [
     ("info", "New reading batch ingested · {n} meters"),
     ("ok", "Restoration confirmed · {c} · {w}"),
     ("warn", "Low power factor flagged · HT connection {m}"),
-    ("info", "Collection posted · ₹{r} lakh · {c}"),
+    ("info", "Collection posted · ${r}k · {c}"),
 ]
 CIRCLES = ["Guwahati-I", "Barpeta", "Nalbari", "Rangia", "Mangaldoi"]
 
