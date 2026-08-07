@@ -1,0 +1,39 @@
+# ============================================================
+#  URJ Portal — full-stack production deploy for your own server.
+#  Runs the FastAPI backend + the React frontend + automatic HTTPS.
+#
+#  1. Point your domain's A record at this server's public IP.
+#  2. Create a .env file next to this one:  DOMAIN=urj-ai.com
+#  3. Open ports 80 and 443 on the server firewall.
+#  4. Run:   docker compose -f docker-compose.prod.yml up -d --build
+#  Caddy fetches a Let's Encrypt certificate automatically.
+# ============================================================
+services:
+  backend:
+    build: ./backend
+    environment:
+      - DATABASE_URL=sqlite:///./urj_portal.db
+      - CORS_ORIGINS=https://${DOMAIN}
+      - ALLOWED_HOSTS=*
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE: https://${DOMAIN}
+    environment:
+      - DOMAIN=${DOMAIN}
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

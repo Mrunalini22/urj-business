@@ -1,0 +1,26 @@
+# Auto-HTTPS for your domain; serves the SPA and proxies the API to the backend.
+{$DOMAIN} {
+	encode gzip
+
+	# API → FastAPI backend container
+	handle /api/* {
+		reverse_proxy backend:8000
+	}
+
+	# Static frontend (SPA fallback to index.html)
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+	}
+
+	# Security headers (HTTPS is handled automatically by Caddy)
+	header {
+		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "geolocation=(), microphone=(), camera=()"
+		-Server
+	}
+}
