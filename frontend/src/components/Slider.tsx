@@ -51,7 +51,7 @@ export function Slider({ hero = false }: { hero?: boolean }) {
 
   return (
     <section className={`section slider-sec ${hero ? "slider-hero" : ""}`} id="showcase">
-      <div className="wrap">
+      <div className={hero ? "slider-fullbleed" : "wrap"}>
         {!hero && (
           <div className="sec-head center reveal">
             <span className="eyebrow center">The platform in the real world</span>
