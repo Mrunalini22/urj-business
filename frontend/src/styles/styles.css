@@ -638,6 +638,33 @@ ul{margin:0;padding:0;list-style:none}
 @media(max-width:560px){.vl-grid{grid-template-columns:1fr}}
 
 /* ============================================================
+   SLD FEATURE SPOTLIGHT
+   ============================================================ */
+.sldf-sec{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.accent-em{color:var(--emerald-600);font-style:normal}
+.sldf-body{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;margin-top:52px}
+.sldf-text .ticks li{margin-bottom:16px;font-size:15px}
+.sldf-proof{margin-top:26px;padding:18px 22px;background:var(--emerald-50);border-left:3px solid var(--emerald-500);border-radius:0 12px 12px 0;font-size:14px;color:var(--ink-600);line-height:1.6}
+.sldf-proof b{color:var(--emerald-700)}
+.sldf-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.sldf-stat b{display:block;font-family:var(--font-display);font-size:1.7rem;font-weight:600;color:var(--emerald-700);letter-spacing:-.02em;line-height:1}
+.sldf-stat span{font-size:12px;color:var(--ink-500);line-height:1.4;display:block;margin-top:7px}
+
+.sldf-visual{display:flex;flex-direction:column;align-items:center;gap:0}
+.sldf-photo{position:relative;width:100%;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);margin:0;aspect-ratio:16/8}
+.sldf-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.sldf-photo figcaption{position:absolute;left:18px;right:18px;bottom:14px;z-index:2;color:#fff;font-family:var(--font-body);font-size:13px}
+.sldf-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(3,26,20,.82))}
+.sldf-photo .tag{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald-300);margin-bottom:4px}
+.sldf-arrow{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 0;color:var(--emerald-600);font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.sldf-arrow svg{transform:rotate(90deg)}
+.sldf-diagram{width:100%;background:var(--grad-hero);border-radius:var(--radius);padding:16px 16px 8px;box-shadow:var(--shadow-lg)}
+.sldf-diagram-head{display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11px;color:rgba(255,255,255,.7);margin-bottom:6px;padding:0 4px}
+.sldf-diagram-head .dot{width:7px;height:7px;border-radius:50%;background:var(--emerald-400);animation:pulse 1.8s infinite}
+.sldf-diagram .viz-svg.sld{background:transparent;box-shadow:none;padding:0}
+@media(max-width:940px){.sldf-body{grid-template-columns:1fr;gap:34px}.sldf-stats{max-width:520px}}
+
+/* ============================================================
    STRENGTHS — Indian DISCOM context band
    ============================================================ */
 .strengths-sec{background:var(--grad-hero);color:#fff;position:relative;overflow:hidden}

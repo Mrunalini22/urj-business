@@ -14,6 +14,7 @@ import { LiveOps } from "../components/LiveOps";
 import { VizShowcase } from "../components/Viz";
 import { Slider } from "../components/Slider";
 import { Strengths } from "../components/Strengths";
+import { SldFeature } from "../components/SldFeature";
 import { HowItWorks, Bespoke, Roadmap, Faq } from "../components/Detail";
 
 const PROBLEMS = [
@@ -166,6 +167,9 @@ export function Landing() {
       <section className="section">
         <div className="wrap"><Architecture layers={data.architecture} /></div>
       </section>
+
+      {/* SLD FEATURE SPOTLIGHT — auto-generated single-line diagram */}
+      <SldFeature />
 
       {/* MODULES */}
       <section className="section" id="modules" style={{ background: "var(--white)", borderTop: "1px solid var(--line)" }}>

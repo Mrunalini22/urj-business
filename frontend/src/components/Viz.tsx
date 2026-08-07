@@ -14,7 +14,7 @@ function lossColor(v: number, min = 6, max = 22) {
 const RISK = { low: "#16a37a", med: "#f5a623", high: "#e0564e" } as Record<string, string>;
 
 /* ══════════════ 1 · LIVE SINGLE-LINE DIAGRAM ══════════════ */
-function Sld() {
+export function Sld() {
   // static topology, animated current flow + live node states
   const feeders = [130, 260, 390];
   const dtY = [150, 220, 290];
