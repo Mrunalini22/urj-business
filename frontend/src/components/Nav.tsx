@@ -55,7 +55,7 @@ export function Nav() {
           <span /><span /><span />
         </button>
         <Link className="brand" to="/" onClick={close}>
-          <BrandLogo height={30} />
+          <BrandLogo height={38} />
         </Link>
       </div>
 
@@ -63,7 +63,7 @@ export function Nav() {
 
       <aside className={`sidebar ${open ? "open" : ""}`}>
         <Link className="sb-brand" to="/" onClick={close}>
-          <BrandLogo height={46} />
+          <BrandLogo height={64} />
         </Link>
 
         <nav className="sb-links">

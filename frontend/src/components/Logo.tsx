@@ -27,7 +27,7 @@ export function BrandLogo({ height = 42, sub = false }: { height?: number; sub?:
   if (ok) {
     return (
       <span className="brand-chip">
-        <img src="/urj-logo-white.png" alt="URJ — DISCOM Operations Intelligence"
+        <img src="/urj-logo-trans.png" alt="URJ — DISCOM Operations Intelligence"
              style={{ height }} onError={() => setOk(false)} />
       </span>
     );
