@@ -13,6 +13,7 @@ import { Loader } from "../components/Loader";
 import { LiveOps } from "../components/LiveOps";
 import { VizShowcase } from "../components/Viz";
 import { Slider } from "../components/Slider";
+import { Strengths } from "../components/Strengths";
 import { HowItWorks, Bespoke, Roadmap, Faq } from "../components/Detail";
 
 const PROBLEMS = [
@@ -157,6 +158,9 @@ export function Landing() {
           <Kpis kpis={data.kpis} />
         </div>
       </section>
+
+      {/* INDIAN DISCOM STRENGTHS — animated context counters */}
+      <Strengths />
 
       {/* ARCHITECTURE */}
       <section className="section">
