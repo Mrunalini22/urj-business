@@ -57,6 +57,9 @@ export function Landing() {
     <>
       <Nav />
 
+      {/* TOP IMAGE SLIDER — 10 realistic power-sector images */}
+      <Slider hero />
+
       {/* HERO */}
       <header className="hero" id="top">
         <div className="hero-bg">
@@ -154,9 +157,6 @@ export function Landing() {
           <Kpis kpis={data.kpis} />
         </div>
       </section>
-
-      {/* IMAGE SLIDER — realistic imagery showcase */}
-      <Slider />
 
       {/* ARCHITECTURE */}
       <section className="section">

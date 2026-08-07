@@ -8,6 +8,8 @@ const SLIDES: Slide[] = [
     desc: "From 132 kV supply down to the last distribution transformer — one live topology, colour-coded by real voltage and current.", stat: "69 substations auto-mapped" },
   { img: "/media/img/g1-control.jpg", eyebrow: "Command center", title: "One control room, one truth",
     desc: "Live KPIs, alerts and telemetry aggregated across every connected source — no more collating numbers by hand before a review.", stat: "Real-time, not days" },
+  { img: "/media/img/g2-transmission.jpg", eyebrow: "Network operations", title: "Substation to feeder, live",
+    desc: "Auto-generated single-line diagrams overlaid with real voltage and current — faster fault localisation and restoration.", stat: "Live telemetry overlay" },
   { img: "/media/img/g3-substation.jpg", eyebrow: "Asset & maintenance", title: "Every asset, on the record",
     desc: "Condition, risk and time-to-failure for each asset — shifting maintenance from calendar-based to predictive and risk-based.", stat: "↓ 15–25% unplanned outages" },
   { img: "/media/img/g5-metering.jpg", eyebrow: "Revenue assurance", title: "From metering to money",
@@ -16,13 +18,17 @@ const SLIDES: Slide[] = [
     desc: "Real-time work-order dispatch, digital attendance and photo evidence — paper registers and phone relay, gone.", stat: "↑ 20–30% productivity" },
   { img: "/media/img/mod-ingest.jpg", eyebrow: "Data & integration", title: "One canonical data layer",
     desc: "Every metering vendor and data source normalised to a single schema before it reaches any dashboard.", stat: "Vendor-agnostic onboarding" },
+  { img: "/media/img/mod-security.jpg", eyebrow: "Security & governance", title: "Secure, multi-tenant, audited",
+    desc: "Isolated data per utility, role-based access at the API, MFA and a full audit trail — verified tenant isolation.", stat: "HTTP 403 cross-tenant" },
+  { img: "/media/img/mod-roi.jpg", eyebrow: "Analytics & ROI", title: "The business case, quantified",
+    desc: "Trained forecasts and a live what-if ROI engine turn operational data into defensible capex decisions.", stat: "Live ROI what-if" },
   { img: "/media/img/g6-solar.jpg", eyebrow: "Renewables & DER", title: "Ready for the energy transition",
     desc: "Net-metering and distributed solar tracked alongside the rest of the network on one shared platform.", stat: "Solar / DER aware" },
 ];
 
 const INTERVAL = 6000;
 
-export function Slider() {
+export function Slider({ hero = false }: { hero?: boolean }) {
   const [i, setI] = useState(0);
   const [prev, setPrev] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -44,15 +50,17 @@ export function Slider() {
   const dir = (i - prev + n) % n === n - 1 ? -1 : 1; // reveal direction
 
   return (
-    <section className="section slider-sec" id="showcase">
+    <section className={`section slider-sec ${hero ? "slider-hero" : ""}`} id="showcase">
       <div className="wrap">
-        <div className="sec-head center reveal">
-          <span className="eyebrow center">The platform in the real world</span>
-          <h2>One system across the whole distribution network</h2>
-          <p className="lead" style={{ marginLeft: "auto", marginRight: "auto" }}>
-            From the control room to the last-mile crew — a visual tour of where URJ operates, on real power-sector infrastructure.
-          </p>
-        </div>
+        {!hero && (
+          <div className="sec-head center reveal">
+            <span className="eyebrow center">The platform in the real world</span>
+            <h2>One system across the whole distribution network</h2>
+            <p className="lead" style={{ marginLeft: "auto", marginRight: "auto" }}>
+              From the control room to the last-mile crew — a visual tour of where URJ operates, on real power-sector infrastructure.
+            </p>
+          </div>
+        )}
 
         <div className="slider reveal d1" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
           <div className="slide-track">
